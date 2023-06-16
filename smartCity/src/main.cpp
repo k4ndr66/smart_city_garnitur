@@ -73,9 +73,12 @@ void loop(){
         digitalWrite(SPKR, HIGH);
         delay(50);
         digitalWrite(SPKR, LOW);
+        isBlinking = true;
+        delayMs = 600;
         break;
       case '0':
         turnOffLED();
+        pos = 90;
         break;
       case '1':
         isBlinking = true;
@@ -99,7 +102,6 @@ void loop(){
     turnOffLED();
     if(!isBtnPushed){
       isBtnPushed = true;
-      digitalWrite(SPKR, HIGH);
       showProduct();
     }
   }else{
@@ -113,6 +115,7 @@ void loop(){
 void showProduct(){
   static int product = 0;
   lcd.clear();
+  digitalWrite(SPKR, HIGH);
   switch(product){
     case 0:
       lcd.setCursor(0,0);
@@ -147,9 +150,9 @@ void showProduct(){
       lcd.print("Barcode is");
       lcd.setCursor(0,1);
       lcd.print("not detected");
-      delay(100);
+      delay(600);
       digitalWrite(SPKR, LOW);
-      delay(3000);
+      delay(2400);
       lcd.clear();
       lcd.setCursor(0,0);
       lcd.print("Sum:     11.63zl");
