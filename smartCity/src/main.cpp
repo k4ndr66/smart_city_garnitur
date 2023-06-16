@@ -9,7 +9,7 @@
 #define LED_ALLEY 17
 
 Servo myservo;
-int pos = 0;
+int pos = 90;
 
 LiquidCrystal_I2C lcd(0x20,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
@@ -60,13 +60,22 @@ void loop(){
   if(Serial.available()){
     c = Serial.read();
     switch(c){
-      case 'a':
+      case 'd':
         if(pos > 0)
           pos = pos - 2;
         break;
-      case 'd':
+      case 'a':
         if(pos < 180)
           pos = pos + 2;
+        break;
+      case 's':
+        digitalWrite(SPKR, HIGH);
+        delay(50);
+        digitalWrite(SPKR, LOW);
+        delay(50);
+        digitalWrite(SPKR, HIGH);
+        delay(50);
+        digitalWrite(SPKR, LOW);
         break;
       case '0':
         turnOffLED();
