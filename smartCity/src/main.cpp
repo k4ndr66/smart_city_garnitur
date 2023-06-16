@@ -6,7 +6,6 @@
 #define SPKR 14
 #define BUTTON 15
 #define LED_PIST 16
-#define LED_ALLEY 17
 
 Servo myservo;
 int pos = 90;
@@ -34,11 +33,9 @@ void setup()
   myservo.attach(9);
   pinMode(SPKR, OUTPUT);
   pinMode(LED_PIST, OUTPUT);
-  pinMode(LED_ALLEY, OUTPUT);
   pinMode(BUTTON, INPUT);
   myservo.write(pos);
-  digitalWrite(LED_PIST, HIGH);
-  digitalWrite(LED_ALLEY, HIGH);
+  digitalWrite(LED_PIST, LOW);
 }
 
 void loop(){
@@ -121,13 +118,13 @@ void showProduct(){
       lcd.setCursor(0,0);
       lcd.print("Bananas");
       lcd.setCursor(0,1);
-      lcd.print("653g      6.13zl");
+      lcd.print("653g      3.13zl");
       delay(100);
       digitalWrite(SPKR, LOW);
       delay(3000);
       lcd.clear();
       lcd.setCursor(0,0);
-      lcd.print("Sum:      6.13zl");
+      lcd.print("Sum:      3.13zl");
       lcd.setCursor(0,1);
       lcd.print("Weight:     653g");
       break;
@@ -155,7 +152,7 @@ void showProduct(){
       delay(3000);
       lcd.clear();
       lcd.setCursor(0,0);
-      lcd.print("Sum:     14.63zl");
+      lcd.print("Sum:     11.63zl");
       lcd.setCursor(0,1);
       lcd.print("Weight:    4.6kg");
       break;
@@ -169,7 +166,7 @@ void showProduct(){
       delay(3000);
       lcd.clear();
       lcd.setCursor(0,0);
-      lcd.print("Sum:     29.63zl");
+      lcd.print("Sum:     26.63zl");
       lcd.setCursor(0,1);
       lcd.print("Weight:    4.7kg");
       break;
